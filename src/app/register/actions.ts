@@ -35,17 +35,22 @@ export async function registerTenant(formData: FormData) {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Manual Transaction (Native SQL)
-    // Note: We use UUID generator in SQL to match Prisma defaults
-    await sql.transaction([
-      sql`INSERT INTO "Tenant" (id, name, "businessType", "updatedAt") 
-          VALUES (gen_random_uuid(), ${storeName}, ${businessType}, now()) 
-          RETURNING id`,
-      sql`INSERT INTO "User" (id, "tenantId", name, email, password, role, "updatedAt")
-          SELECT gen_random_uuid(), id, ${adminName}, ${email}, ${hashedPassword}, 'ADMIN', now()
-          FROM "Tenant" WHERE name = ${storeName} ORDER BY "createdAt" DESC LIMIT 1`
-    ]);
+    // 1. Create Tenant and get the ID back
+    const tenantResult = await sql`
+      INSERT INTO "Tenant" (id, name, "businessType", "updatedAt") 
+      VALUES (gen_random_uuid(), ${storeName}, ${businessType}, now()) 
+      RETURNING id
+    `;
+    
+    const tenantId = tenantResult[0].id;
 
-    console.log('✅ Registration Successful via HTTP Fallback');
+    // 2. Create Admin User using that specific tenantId
+    await sql`
+      INSERT INTO "User" (id, "tenantId", name, email, password, role, "updatedAt")
+      VALUES (gen_random_uuid(), ${tenantId}, ${adminName}, ${email}, ${hashedPassword}, 'ADMIN', now())
+    `;
+
+    console.log('✅ Registration Successful via robust HTTP path');
     return { success: true };
   } catch (error: any) {
     console.error('Registration Error (HTTP):', error.message);

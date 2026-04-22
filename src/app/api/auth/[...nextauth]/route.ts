@@ -14,22 +14,33 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
+        console.log(`[Auth] Login attempt for: ${credentials?.email}`);
+        
         if (!credentials?.email || !credentials?.password) {
+          console.warn('[Auth] Missing credentials');
           return null;
         }
 
-        const user = await prisma.user.findUnique({
-          where: { email: credentials.email },
-          include: { tenant: true }
-        });
+        try {
+          const user = await prisma.user.findUnique({
+            where: { email: credentials.email },
+            include: { tenant: true }
+          });
 
-        if (!user || user.status === 'INACTIVE' || user.status === 'SUSPENDED') {
-          // If user is suspended, block immediately
-          if (user?.status === 'SUSPENDED') {
-             throw new Error("Account suspended due to too many failed login attempts. Contact Admin.");
+          if (!user) {
+            console.error('[Auth] User not found in database');
+            return null;
           }
-          return null;
-        }
+
+          console.log(`[Auth] User found: ${user.id}, Status: ${user.status}`);
+
+          if (user.status === 'INACTIVE' || user.status === 'SUSPENDED') {
+            console.warn(`[Auth] User account is ${user.status}`);
+            if (user.status === 'SUSPENDED') {
+               throw new Error("Account suspended due to too many failed login attempts. Contact Admin.");
+            }
+            return null;
+          }
 
         // Get tenant's security config
         const tenantMetadata = user.tenant.metadata as any;
