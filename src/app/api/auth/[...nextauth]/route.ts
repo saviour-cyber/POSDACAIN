@@ -101,6 +101,11 @@ export const authOptions: NextAuthOptions = {
           });
         }
 
+        } catch (error: any) {
+          console.error('[Auth] Database error during login:', error.message);
+          return null;
+        }
+
         return {
           id: user.id,
           email: user.email,
