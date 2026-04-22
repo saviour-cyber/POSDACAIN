@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: canonpos-core
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: DATABASE_URL
+        sync: false # User will provide this in dashboard
+      - key: NEXTAUTH_SECRET
+        generateValue: true # Render can generate this automatically
+      - key: NEXTAUTH_URL
+        sync: false # User will provide this (e.g. https://canonpos.onrender.com)
+      - key: NODE_ENV
+        value: production
+    healthCheckPath: /
+    autoDeploy: true

@@ -1,0 +1,260 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ----------------------------------------------------------------------------
+// Multi-Tenant Architecture
+// ----------------------------------------------------------------------------
+model Tenant {
+  id           String   @id @default(uuid())
+  name         String
+  businessType String
+  domain       String?  @unique
+  metadata     Json?    // Vertical-specific tenant config
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  users           User[]
+  products        Product[]
+  sales           Sale[]
+  customers       Customer[]
+  systemLogs      SystemLog[]
+  paymentGateways PaymentGateway[]
+}
+
+// ----------------------------------------------------------------------------
+// User Management & RBAC
+// ----------------------------------------------------------------------------
+model User {
+  id        String   @id @default(uuid())
+  tenantId  String
+  name      String
+  email     String   @unique
+  password  String
+  role      Role     @default(STAFF)
+  status    Status   @default(ACTIVE)
+  metadata  Json?    // User preferences or additional details
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  sales  Sale[]
+}
+
+enum Status {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+}
+
+enum Role {
+  SUPER_ADMIN
+  ADMIN
+  MANAGER
+  STAFF
+}
+
+// ----------------------------------------------------------------------------
+// Stock Management
+// ----------------------------------------------------------------------------
+model Product {
+  id                String   @id @default(uuid())
+  tenantId          String
+  name              String
+  sku               String?
+  barcode           String?
+  price             Float
+  cost              Float?
+  stock             Float    @default(0)
+  minStockLevel     Float    @default(10)  // User threshold for warning
+  targetStockLevel  Float    @default(50)  // User threshold for full restock
+  unit              String   @default("PCS")
+  lowStockThreshold Int      @default(5)   // Legacy, keep for compatibility
+  category          String?
+  supplierId        String?
+  metadata          Json?    // e.g. { expiryDate, isPrescriptionRequired, bulkPricing }
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  tenant     Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  supplier   Supplier?  @relation(fields: [supplierId], references: [id])
+  saleItems  SaleItem[]
+}
+
+model Supplier {
+  id           String   @id @default(uuid())
+  tenantId     String
+  code         String?  @unique // e.g., "SUP-HORIZON"
+  name         String
+  kraPin       String?   // For Kenyan Tax Compliance
+  contactName  String?   
+  phone        String?   
+  email        String?
+  address      String?
+  
+  // Financial Tracking
+  paymentTerms String?  @default("Cash") // Cash, Net 7, Net 30
+  totalOwed    Float    @default(0)      // Current Debt
+  
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  products Product[]
+}
+
+// ----------------------------------------------------------------------------
+// Customers & Loyalty
+// ----------------------------------------------------------------------------
+model Customer {
+  id             String   @id @default(uuid())
+  tenantId       String
+  code           String?  // System assigned short ID (e.g. CUST-1001)
+  name           String
+  company        String?
+  kraPin         String?
+  phone          String?
+  email          String?
+  creditLimit    Float    @default(0)
+  depositBalance Float    @default(0)
+  loyaltyPts     Int      @default(0)
+  metadata       Json?    // e.g. { patientHistory, bloodType, allergies }
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  sales  Sale[]
+}
+
+// ----------------------------------------------------------------------------
+// Sales & Checkout
+// ----------------------------------------------------------------------------
+model Sale {
+  id          String      @id @default(uuid())
+  tenantId    String
+  userId      String
+  customerId  String?
+  totalAmount Float
+  paymentMode PaymentMode
+  status      SaleStatus  @default(COMPLETED)
+  metadata            Json?       // e.g. { tableNumber, orderNotes, technicianId }
+  dueDate             DateTime?
+  lastReminderSentAt  DateTime?
+  createdAt           DateTime    @default(now())
+
+  tenant   Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user     User       @relation(fields: [userId], references: [id])
+  customer Customer?  @relation(fields: [customerId], references: [id])
+  items    SaleItem[]
+  payments Payment[]
+}
+
+model SaleItem {
+  id         String  @id @default(uuid())
+  saleId     String
+  productId  String
+  quantity   Float
+  unitPrice  Float
+  totalPrice Float
+  metadata   Json?   // e.g. { selectedModifiers, dosageInstructions }
+
+  sale    Sale    @relation(fields: [saleId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id])
+}
+
+enum PaymentMode {
+  CASH
+  CARD
+  MOBILE_MONEY
+  BANK_TRANSFER
+  CREDIT
+}
+
+enum SaleStatus {
+  PENDING
+  PARTIAL
+  COMPLETED
+  REFUNDED
+  CANCELLED
+}
+
+// ----------------------------------------------------------------------------
+// System & Audit Logs
+// ----------------------------------------------------------------------------
+model SystemLog {
+  id         String   @id @default(uuid())
+  tenantId   String
+  level      LogLevel @default(INFO)
+  type       String   // e.g. Transaction, System, Security, Sync
+  event      String
+  status     String   // e.g. Success, Failed
+  terminalId String
+  metadata   Json?    // Optional extra context
+  createdAt  DateTime @default(now())
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+}
+
+enum LogLevel {
+  INFO
+  WARNING
+  ERROR
+  CRITICAL
+}
+
+// ----------------------------------------------------------------------------
+// Payment Integrations
+// ----------------------------------------------------------------------------
+
+model PaymentGateway {
+  id             String   @id @default(uuid())
+  tenantId       String
+  type           String   // e.g. 'mpesa'
+  shortcode      String?
+  passkey        String?
+  consumerKey    String?
+  consumerSecret String?
+  isActive       Boolean  @default(true)
+  metadata       Json?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  
+  @@unique([tenantId, type]) // Each tenant can have one gateway of a specific type (e.g. one active mpesa)
+}
+
+model Payment {
+  id                String   @id @default(uuid())
+  saleId            String
+  method            String   // e.g. 'MPESA'
+  amount            Float
+  status            PaymentStatus @default(PENDING)
+  transactionId     String?  @unique // MpesaReceiptNumber
+  checkoutRequestId String?  @unique // Used for STK Push callback matching
+  metadata          Json?    // Store raw webhook data or phone number
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  sale Sale @relation(fields: [saleId], references: [id], onDelete: Cascade)
+}
+
+enum PaymentStatus {
+  PENDING
+  SUCCESS
+  FAILED
+}
+
+model WebhookLog {
+  id        String   @id @default(uuid())
+  source    String   // e.g. 'MPESA'
+  payload   Json
+  status    String   // 'PROCESSED', 'FAILED', 'IGNORED'
+  error     String?
+  createdAt DateTime @default(now())
+}

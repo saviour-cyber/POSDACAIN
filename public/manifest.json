@@ -1,0 +1,17 @@
+{
+  "name": "NexaSync POS",
+  "short_name": "POS",
+  "description": "Multi-Tenant Business Point of Sale System",
+  "start_url": "/login",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#008080",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

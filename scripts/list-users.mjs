@@ -1,0 +1,13 @@
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
+
+const users = await prisma.user.findMany({
+  select: {
+    email: true,
+    role: true,
+    tenant: { select: { name: true, businessType: true } }
+  }
+});
+
+console.log(JSON.stringify(users, null, 2));
+await prisma.$disconnect();
