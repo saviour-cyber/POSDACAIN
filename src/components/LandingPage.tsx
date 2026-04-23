@@ -6,8 +6,11 @@ export default function LandingPage() {
     <div className="min-h-screen bg-[#0b1220] text-white font-sans selection:bg-[#4da6ff] selection:text-white overflow-x-hidden">
       
       {/* NAVBAR */}
-      <nav className="fixed w-full z-[100] flex justify-between items-center px-6 lg:px-16 py-5 bg-[#0b1220]/80 backdrop-blur-md border-b border-white/5">
-        <h2 className="text-2xl font-bold tracking-tight">SmartPOS</h2>
+      <nav className="fixed w-full z-[100] flex justify-between items-center px-6 lg:px-16 py-4 bg-[#0b1220]/80 backdrop-blur-md border-b border-white/5">
+        <div className="flex items-center gap-3">
+          <img src="/logo.png" alt="Dacain Systems Logo" className="h-10 w-auto object-contain" />
+          <span className="text-xl font-bold tracking-tight hidden sm:inline-block">Dacain Systems</span>
+        </div>
         <div className="hidden md:flex gap-6 items-center">
           <Link href="#" className="hover:text-[#4da6ff] transition-colors">Home</Link>
           <Link href="#services" className="hover:text-[#4da6ff] transition-colors">Services</Link>
@@ -28,10 +31,7 @@ export default function LandingPage() {
         <div className="relative z-10 w-full grid lg:grid-cols-2 gap-16 items-center">
           {/* Headline & CTAs */}
           <div className="max-w-[650px] animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6 group cursor-default">
-              <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
-              <span className="text-[11px] font-bold text-blue-300 uppercase tracking-[0.2em]">Next-Gen POS Systems</span>
-            </div>
+            <div className="mb-6"></div>
             
             <h1 className="text-6xl lg:text-7xl font-black leading-[1.05] mb-8 tracking-[-0.030em] text-white">
               The Smart Way to <br/>
@@ -282,8 +282,11 @@ export default function LandingPage() {
       {/* FOOTER */}
       <footer id="contact" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-6 lg:px-16 py-16 bg-[#050a15] text-sm border-t border-white/10">
           <div>
-              <h4 className="text-xl font-bold mb-4">SmartPOS</h4>
-              <p className="text-[#ccc] mb-4">All-in-one POS system for modern businesses.</p>
+            <div className="flex items-center gap-3 mb-6">
+              <img src="/logo.png" alt="Dacain Systems" className="h-8 w-auto opacity-80" />
+              <h4 className="text-xl font-bold text-white">Dacain Systems</h4>
+            </div>
+            <p className="text-[#ccc] mb-4">All-in-one POS system for modern businesses.</p>
           </div>
           <div>
               <h4 className="text-lg font-bold mb-4">Links</h4>
