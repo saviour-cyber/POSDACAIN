@@ -1,5 +1,6 @@
 import prisma from "@/lib/prisma";
 import DashboardShell from "@/components/layout/DashboardShell";
+import LandingPage from "@/components/LandingPage";
 import { 
   Users, 
   Package, 
@@ -12,7 +13,6 @@ import {
 } from 'lucide-react';
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
-import { redirect } from "next/navigation";
 import SystemStatusWidgets from "./SystemStatusWidgets";
 import { getProcurementStats } from "./inventory/actions";
 import Link from "next/link";
@@ -21,7 +21,7 @@ export default async function Dashboard() {
   const session = await getServerSession(authOptions);
 
   if (!session) {
-    redirect('/login');
+    return <LandingPage />;
   }
 
   const [productCount, customerCount] = await Promise.all([
