@@ -51,74 +51,133 @@ export default function LandingPage() {
           </div>
 
           {/* RIGHT SIDE HERO MOCKUP (CSS Illusion) */}
-          <div className="relative perspective-1000 hidden lg:block h-[500px]">
+          <div className="relative hidden lg:flex items-center justify-center h-[600px] w-full perspective-1000 pl-16">
+            {/* Background Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-to-tr from-[#6a5cff]/30 to-[#4da6ff]/30 blur-[100px] rounded-full pointer-events-none -z-10"></div>
+
             {/* Desktop Dashboard */}
-            <div className="absolute right-0 top-10 w-[600px] h-[380px] bg-[#0b1220]/90 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl p-4 transform rotate-y-[-10deg] rotate-x-[5deg] translate-x-12 translate-z-[-100px] hover:translate-z-[-80px] hover:rotate-y-[-5deg] transition-all duration-700">
-              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-                <div className="w-24 h-4 bg-white/10 rounded-full"></div>
-                <div className="flex gap-2">
-                   <div className="w-6 h-6 bg-white/10 rounded-full"></div>
-                   <div className="w-6 h-6 bg-white/10 rounded-full"></div>
+            <div className="absolute right-0 w-[650px] h-[420px] bg-[#0b1220]/80 backdrop-blur-3xl border border-white/10 rounded-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8),0_0_80px_-20px_rgba(77,166,255,0.2)] p-5 transform rotate-y-[-10deg] rotate-x-[5deg] translate-z-[-50px] hover:translate-z-[-20px] hover:rotate-y-[-5deg] transition-transform duration-700">
+              
+              {/* Dashboard Layout: Sidebar + Canvas */}
+              <div className="flex h-full gap-5">
+                
+                {/* Sidebar */}
+                <div className="w-14 shrink-0 flex flex-col gap-4 border-r border-white/5 pr-4">
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#4da6ff] to-[#6a5cff] shadow-lg shadow-[#4da6ff]/30 mb-4"></div>
+                  {[1,2,3,4].map(i => (
+                     <div key={i} className="w-6 h-6 rounded-md bg-white/5 hover:bg-white/20 transition-colors cursor-default"></div>
+                  ))}
+                  <div className="mt-auto w-8 h-8 rounded-full bg-slate-800 border my-1 border-slate-600"></div>
                 </div>
-              </div>
-              <div className="grid grid-cols-3 gap-4 h-[calc(100%-3rem)]">
-                <div className="col-span-2 space-y-4 h-full flex flex-col">
-                  <div className="h-32 bg-gradient-to-br from-[#4da6ff]/10 to-transparent rounded-xl border border-[#4da6ff]/20 p-4 shrink-0 flex flex-col justify-end">
-                    <div className="w-16 h-3 bg-[#4da6ff]/50 rounded-full mb-2"></div>
-                    <div className="w-32 h-8 bg-white/80 rounded-md"></div>
-                    {/* Tiny Chart */}
-                    <div className="w-full h-12 mt-4 border-b border-l border-white/10 relative flex items-end justify-between px-2 pb-1">
-                       {[2,4,3,8,5,7,9,6].map((h, i) => (
-                           <div key={i} className="w-3 bg-[#4da6ff] rounded-t-sm" style={{ height: `${h}0%` }}></div>
-                       ))}
+
+                {/* Main Canvas */}
+                <div className="flex-1 flex flex-col gap-5">
+                  <div className="flex justify-between items-center">
+                    <div className="w-32 h-4 rounded-full bg-white/10"></div>
+                    <div className="flex gap-2">
+                      <div className="w-20 h-6 rounded-full bg-[#4da6ff]/20 border border-[#4da6ff]/40"></div>
+                      <div className="w-6 h-6 rounded-full bg-white/10"></div>
                     </div>
                   </div>
-                  <div className="flex gap-4 flex-1">
-                    <div className="flex-1 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
-                       <Package size={24} className="text-[#4da6ff]" />
+
+                  {/* Top KPIs (Floating Glass Cards) */}
+                  <div className="flex gap-4">
+                    <div className="flex-1 h-20 bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col justify-between backdrop-blur-md hover:-translate-y-1 transition-transform shadow-lg shadow-black/20 cursor-default">
+                       <div className="w-16 h-2 bg-white/20 rounded-full"></div>
+                       <div className="flex justify-between items-end">
+                         <div className="w-20 h-5 bg-white/80 rounded-md"></div>
+                         <div className="w-8 h-3 bg-emerald-400 rounded-full shadow-[0_0_10px_rgba(52,211,153,0.5)]"></div>
+                       </div>
                     </div>
-                    <div className="flex-1 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
-                       <Users size={24} className="text-purple-400" />
+                    <div className="flex-1 h-20 bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col justify-between backdrop-blur-md hover:-translate-y-1 transition-transform shadow-lg shadow-black/20 cursor-default">
+                       <div className="w-16 h-2 bg-white/20 rounded-full"></div>
+                       <div className="flex justify-between items-end">
+                         <div className="w-20 h-5 bg-white/80 rounded-md"></div>
+                         <div className="w-8 h-3 bg-rose-400 rounded-full shadow-[0_0_10px_rgba(251,113,133,0.5)]"></div>
+                       </div>
                     </div>
                   </div>
+
+                  {/* Big Chart Area */}
+                  <div className="flex-1 rounded-xl bg-gradient-to-b from-[#4da6ff]/10 to-transparent border border-white/10 relative overflow-hidden flex items-end shadow-inner">
+                      <svg viewBox="0 0 400 100" className="absolute bottom-0 w-[110%] -left-[5%] h-full opacity-80 drop-shadow-[0_0_15px_rgba(77,166,255,0.6)]" preserveAspectRatio="none">
+                         <path d="M0,80 Q50,90 100,50 T200,40 T300,70 T400,20 L400,100 L0,100 Z" fill="url(#grad)" stroke="none" />
+                         <path d="M0,80 Q50,90 100,50 T200,40 T300,70 T400,20" fill="none" stroke="#4da6ff" strokeWidth="2.5" />
+                         <defs>
+                           <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
+                             <stop offset="0%" stopColor="#4da6ff" stopOpacity="0.5"/>
+                             <stop offset="100%" stopColor="#4da6ff" stopOpacity="0"/>
+                           </linearGradient>
+                         </defs>
+                      </svg>
+                  </div>
                 </div>
-                <div className="h-full bg-white/5 rounded-xl border border-white/10 p-3 flex flex-col">
-                   <div className="w-16 h-3 bg-white/20 rounded-full mb-4"></div>
-                   <div className="flex-1 space-y-3">
-                     {[1,2,3,4,5].map(i => (
-                        <div key={i} className="flex gap-2 items-center">
-                          <div className="w-6 h-6 bg-white/10 rounded-full shrink-0"></div>
-                          <div className="w-full h-2 bg-white/10 rounded-full"></div>
+
+                {/* Right Panel (Transactions) */}
+                <div className="w-40 shrink-0 bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col backdrop-blur-md">
+                  <div className="w-20 h-3 bg-white/20 rounded-full mb-4"></div>
+                  <div className="space-y-3 flex-1 overflow-hidden">
+                    {['bg-emerald-400', 'bg-emerald-400', 'bg-amber-400', 'bg-emerald-400', 'bg-rose-400'].map((color, i) => (
+                      <div key={i} className="flex justify-between items-center bg-white/5 p-2 rounded-lg border border-white/5 hover:bg-white/10 transition-colors cursor-default">
+                        <div className="space-y-1">
+                          <div className="w-12 h-2 bg-white/60 rounded-full"></div>
+                          <div className="w-8 h-1.5 bg-white/20 rounded-full"></div>
                         </div>
-                     ))}
-                   </div>
+                        <div className={`w-2 h-2 rounded-full ${color} shadow-lg shadow-black`}></div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
+
               </div>
             </div>
 
-            {/* Tablet POS Terminal */}
-            <div className="absolute left-10 bottom-0 w-[260px] h-[340px] bg-black border-4 border-gray-800 rounded-[28px] shadow-2xl p-2 transform rotate-y-[15deg] rotate-x-[5deg] translate-z-[100px] hover:translate-z-[120px] hover:rotate-y-[5deg] transition-all duration-700">
-               <div className="w-full h-full bg-white rounded-[20px] overflow-hidden flex flex-col">
-                  <div className="h-10 bg-gray-50 border-b border-gray-200 flex items-center justify-between px-3 shrink-0">
-                     <div className="w-12 h-3 bg-gray-300 rounded-full"></div>
-                     <div className="w-16 h-5 bg-[#4da6ff] rounded-md"></div>
+            {/* Tablet / Phone Mockup (Overlap) */}
+            <div className="absolute -left-12 bottom-0 w-[240px] h-[400px] bg-[#02050e] border-[6px] border-slate-800/90 rounded-[32px] shadow-[0_40px_80px_-20px_rgba(0,0,0,1),0_0_40px_-5px_rgba(77,166,255,0.3)] p-1.5 transform rotate-y-[12deg] rotate-x-[5deg] translate-z-[120px] hover:translate-z-[160px] hover:rotate-y-[8deg] transition-all duration-700 backdrop-blur-md overflow-hidden z-20">
+               
+               {/* Glass Reflection effect */}
+               <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/10 to-transparent z-50"></div>
+               
+               <div className="w-full h-full bg-[#0b1220] rounded-[22px] overflow-hidden flex flex-col border border-white/5 relative z-10">
+                  {/* Status Bar */}
+                  <div className="h-6 flex justify-between items-center px-4 pt-1">
+                     <div className="w-6 h-1.5 bg-white/30 rounded-full"></div>
+                     <div className="flex gap-1">
+                        <div className="w-1.5 h-1.5 bg-white/30 rounded-full"></div>
+                        <div className="w-2.5 h-1.5 bg-white/30 rounded-sm"></div>
+                     </div>
                   </div>
-                  <div className="flex-1 p-2 grid grid-cols-2 gap-2">
-                     <div className="bg-red-500 rounded-lg shadow-inner"></div>
-                     <div className="bg-blue-500 rounded-lg shadow-inner"></div>
-                     <div className="bg-orange-500 rounded-lg shadow-inner"></div>
-                     <div className="bg-green-500 rounded-lg shadow-inner"></div>
-                     <div className="bg-purple-500 rounded-lg shadow-inner"></div>
-                     <div className="bg-[#4da6ff] rounded-lg shadow-inner"></div>
+
+                  {/* Tablet Hero Widget */}
+                  <div className="flex-1 p-3 flex flex-col gap-3">
+                     <div className="h-20 bg-gradient-to-br from-[#6a5cff] to-[#4da6ff] rounded-xl flex flex-col justify-center px-4 relative overflow-hidden shadow-lg shadow-[#4da6ff]/20">
+                        <div className="absolute right-0 bottom-0 w-24 h-24 bg-white/20 rounded-full blur-xl translate-x-1/2 translate-y-1/3"></div>
+                        <div className="w-16 h-2 bg-white/60 rounded-full mb-2"></div>
+                        <div className="w-24 h-5 bg-white rounded-md shadow-sm"></div>
+                     </div>
+
+                     {/* Vibrant POS Grid */}
+                     <div className="grid grid-cols-2 gap-2 flex-1">
+                        {[
+                          "bg-emerald-500", "bg-rose-500", "bg-blue-500", 
+                          "bg-amber-500", "bg-purple-500", "bg-cyan-500"
+                        ].map((c, i) => (
+                          <div key={i} className={`${c} rounded-xl shadow-inner relative overflow-hidden group border border-white/10`}>
+                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                             <div className="absolute bottom-2 left-2 w-10 h-1.5 bg-white/90 rounded-full shadow-sm"></div>
+                             <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-white/20"></div>
+                          </div>
+                        ))}
+                     </div>
                   </div>
-                  <div className="h-16 bg-[#0b1220] m-2 mt-0 rounded-xl shrink-0 flex items-center justify-between px-4">
-                     <div className="w-10 h-3 bg-white/30 rounded-full"></div>
-                     <div className="w-14 h-4 bg-white rounded-full"></div>
+
+                  {/* Bottom Navigation */}
+                  <div className="h-14 bg-[#050a15] flex justify-around items-center px-2 border-t border-white/10 pb-1 shrink-0">
+                     {[1,2,3,4].map(i => (
+                        <div key={i} className={`w-5 h-5 rounded-md ${i===1?'bg-gradient-to-r from-[#4da6ff] to-[#6a5cff]':'bg-white/10'} shadow-sm`}></div>
+                     ))}
                   </div>
                </div>
-               {/* Stand Stand */}
-               <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-900 rounded-b-xl border-x-4 border-b-4 border-gray-800"></div>
-               <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-40 h-4 bg-gray-800 rounded-full shadow-[0_10px_20px_rgba(0,0,0,0.8)]"></div>
             </div>
           </div>
         </div>
