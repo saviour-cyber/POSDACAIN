@@ -9,8 +9,8 @@ export default function LandingPage() {
       <nav className="fixed w-full z-[100] flex justify-between items-center px-6 lg:px-16 py-6 bg-[#0b1220]/90 backdrop-blur-xl border-b border-white/5 transition-all">
         <div className="flex items-center gap-4 group cursor-pointer">
           <div className="relative">
-            <div className="absolute -inset-2 bg-blue-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <img src="/logo.png" alt="Dacain Systems Logo" className="h-14 lg:h-16 w-auto object-contain relative z-10 drop-shadow-2xl brightness-110" />
+            <div className="absolute -inset-4 bg-blue-500/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+            <img src="/logo-transparent.png" alt="Dacain Systems Logo" className="h-14 lg:h-16 w-auto object-contain relative z-10 drop-shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-transform group-hover:scale-105" />
           </div>
           <span className="text-2xl font-black tracking-tight hidden sm:inline-block bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">Dacain Systems</span>
         </div>
@@ -189,7 +189,7 @@ export default function LandingPage() {
 
                     <div className="bg-gradient-to-br from-indigo-600 to-blue-700 p-6 flex flex-col items-center text-white shrink-0 shadow-lg relative overflow-hidden group">
                        <div className="absolute inset-0 bg-white/10 opacity-20 group-hover:opacity-30 transition-opacity"></div>
-                       <img src="/logo.png" alt="Dacain Logo" className="h-10 w-auto mb-3 invert brightness-200" />
+                       <img src="/logo-transparent.png" alt="Dacain Logo" className="h-10 w-auto mb-3" />
                        <p className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 mb-1 opacity-80">Total Bill</p>
                        <h2 className="text-[32px] font-black tracking-tighter relative z-10">KSh 3,240</h2>
                        <div className="mt-4 px-4 py-1.5 bg-white/20 rounded-full text-[8px] font-black uppercase tracking-widest relative z-10 backdrop-blur-md">Awaiting Payment</div>
@@ -287,7 +287,7 @@ export default function LandingPage() {
       <footer id="contact" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-6 lg:px-16 py-16 bg-[#050a15] text-sm border-t border-white/10">
           <div>
             <div className="flex items-center gap-4 mb-8">
-              <img src="/logo.png" alt="Dacain Systems" className="h-12 w-auto brightness-125" />
+              <img src="/logo-transparent.png" alt="Dacain Systems" className="h-12 w-auto" />
               <h4 className="text-2xl font-black text-white">Dacain Systems</h4>
             </div>
             <p className="text-gray-400 leading-relaxed mb-6">Empowering businesses with the next generation of sales and inventory management tools.</p>
