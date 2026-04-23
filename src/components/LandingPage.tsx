@@ -63,149 +63,153 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* RIGHT SIDE HERO COMPONENT (Stripe/Shopify Realism) */}
-          <div className="relative hidden lg:flex items-center justify-end h-[750px] w-full perspective-2000 z-10">
+          {/* RIGHT SIDE HERO COMPONENT (Mobile Responsive) */}
+          <div className="relative flex items-center justify-center lg:justify-end min-h-[500px] lg:h-[750px] w-full perspective-2000 z-10 mt-12 lg:mt-0">
             
             {/* Deep Ambient Glow Background */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br from-blue-600/40 via-transparent to-purple-600/40 blur-[150px] rounded-full pointer-events-none -z-20"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] lg:w-[700px] h-[300px] lg:h-[700px] bg-gradient-to-br from-blue-600/40 via-transparent to-purple-600/40 blur-[80px] lg:blur-[150px] rounded-full pointer-events-none -z-20"></div>
 
-            {/* MAIN DASHBOARD (The Focus) */}
-            <div className="relative w-[850px] h-[580px] bg-[#0E1526] border border-slate-700/60 rounded-2xl shadow-[0_60px_100px_-30px_rgba(0,0,0,0.9),0_0_120px_-30px_rgba(99,102,241,0.3)] flex flex-col overflow-hidden transform rotate-y-[-12deg] rotate-x-[6deg] translate-x-20 translate-z-[-40px] hover:translate-z-0 hover:rotate-y-[-6deg] transition-all duration-1000 z-10 ring-1 ring-white/5">
+            {/* Scale Wrapper for Mobile */}
+            <div className="relative scale-[0.45] sm:scale-[0.6] md:scale-[0.8] lg:scale-100 flex items-center justify-center lg:justify-end w-full transition-transform duration-500">
               
-              {/* Dashboard Navbar */}
-              <div className="h-16 bg-[#111827] border-b border-slate-700/50 flex items-center justify-between px-8 shrink-0">
-                <div className="flex items-center gap-8">
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
-                    <div className="w-3 h-3 rounded-full bg-amber-500/50"></div>
-                    <div className="w-3 h-3 rounded-full bg-emerald-500/50"></div>
-                  </div>
-                  <div className="flex gap-6 text-[13px] font-bold text-slate-400">
-                    <span className="text-blue-400 pb-5 border-b-2 border-blue-400 translate-y-[10px]">Overview</span>
-                    <span className="hover:text-white cursor-pointer transition-colors">Sales Tracking</span>
-                    <span className="hover:text-white cursor-pointer transition-colors">Inventory</span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-5">
-                  <div className="w-10 h-10 rounded-full border-2 border-slate-700 bg-[#0E1526] flex items-center justify-center">
-                    <Users size={18} className="text-slate-400" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Dashboard Content */}
-              <div className="flex-1 p-8 grid grid-cols-3 gap-8 bg-[#0E1526]">
+              {/* MAIN DASHBOARD */}
+              <div className="relative w-[850px] h-[580px] bg-[#0E1526] border border-slate-700/60 rounded-2xl shadow-[0_60px_100px_-30px_rgba(0,0,0,0.9),0_0_120px_-30px_rgba(99,102,241,0.3)] flex flex-col overflow-hidden transform lg:rotate-y-[-12deg] lg:rotate-x-[6deg] lg:translate-x-10 hover:translate-z-0 transition-all duration-1000 z-10 ring-1 ring-white/5">
                 
-                {/* Left Column (Charts & Stats) */}
-                <div className="col-span-2 flex flex-col gap-8">
-                  <div className="grid grid-cols-2 gap-6">
-                    <div className="bg-[#111827] border border-slate-700/50 rounded-[20px] p-6 shadow-2xl hover:border-blue-500/30 transition-all group">
-                      <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.15em] mb-4">Daily Volume</p>
-                      <div className="flex items-end justify-between">
-                        <h3 className="text-3xl font-black text-white leading-none tracking-tighter">KSh 124,563.00</h3>
-                        <span className="text-[10px] font-black text-emerald-400 bg-emerald-400/10 px-2 py-1 rounded-md translate-y-1">+12%</span>
-                      </div>
+                {/* Dashboard Navbar */}
+                <div className="h-16 bg-[#111827] border-b border-slate-700/50 flex items-center justify-between px-8 shrink-0">
+                  <div className="flex items-center gap-8">
+                    <div className="flex gap-2">
+                      <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
+                      <div className="w-3 h-3 rounded-full bg-amber-500/50"></div>
+                      <div className="w-3 h-3 rounded-full bg-emerald-500/50"></div>
                     </div>
-                    <div className="bg-[#111827] border border-slate-700/50 rounded-[20px] p-6 shadow-2xl hover:border-purple-500/30 transition-all">
-                      <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.15em] mb-4">Avg Transaction</p>
-                      <div className="flex items-end justify-between">
-                        <h3 className="text-3xl font-black text-white leading-none tracking-tighter">KSh 3,240.50</h3>
-                      </div>
+                    <div className="flex gap-6 text-[13px] font-bold text-slate-400">
+                      <span className="text-blue-400 pb-5 border-b-2 border-blue-400 translate-y-[10px]">Overview</span>
+                      <span className="hover:text-white cursor-pointer transition-colors">Sales Tracking</span>
+                      <span className="hover:text-white cursor-pointer transition-colors">Inventory</span>
                     </div>
                   </div>
-
-                  {/* High Quality Chart */}
-                  <div className="flex-1 bg-[#111827] border border-slate-700/50 rounded-[24px] p-6 flex flex-col shadow-2xl relative group">
-                    <div className="flex justify-between items-center mb-8">
-                      <div>
-                        <h4 className="text-base font-black text-white tracking-tight">Revenue Stream</h4>
-                        <p className="text-xs text-slate-500 font-bold mt-1">Updated 2 minutes ago</p>
-                      </div>
-                      <div className="flex gap-2">
-                        <div className="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center">
-                            <span className="text-white text-xs font-bold">W</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex-1 w-full relative z-10 bottom-0 pointer-events-none">
-                      <svg viewBox="0 0 500 150" className="absolute bottom-0 w-full h-[140%] drop-shadow-[0_15px_30px_rgba(59,130,246,0.6)]" preserveAspectRatio="none">
-                         <path d="M0,130 C50,110 100,140 150,80 C200,20 250,90 300,40 C350,0 400,60 450,20 C480,10 500,30 500,30 L500,150 L0,150 Z" fill="url(#blueHeroGrad)" stroke="none" />
-                         <path d="M0,130 C50,110 100,140 150,80 C200,20 250,90 300,40 C350,0 400,60 450,20 C480,10 500,30 500,30" fill="none" stroke="#4da6ff" strokeWidth="4" strokeLinecap="round" />
-                         <defs>
-                           <linearGradient id="blueHeroGrad" x1="0" y1="0" x2="0" y2="1">
-                             <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.4"/>
-                             <stop offset="100%" stopColor="#3B82F6" stopOpacity="0"/>
-                           </linearGradient>
-                         </defs>
-                      </svg>
+                  <div className="flex items-center gap-5">
+                    <div className="w-10 h-10 rounded-full border-2 border-slate-700 bg-[#0E1526] flex items-center justify-center">
+                      <Users size={18} className="text-slate-400" />
                     </div>
                   </div>
                 </div>
 
-                {/* Right Column (Transactions Table) */}
-                <div className="col-span-1 bg-[#111827] border border-slate-700/50 rounded-[24px] flex flex-col overflow-hidden shadow-2xl ring-1 ring-white/5">
-                  <div className="px-6 py-5 border-b border-slate-700/50 bg-slate-900/40">
-                    <h4 className="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">Live Stream</h4>
-                  </div>
-                  <div className="flex-1 overflow-y-auto p-4 space-y-3">
-                    {[
-                      { n: 'Main Branch Cafe', d: '2m ago', a: '+KSh 340', s: 'text-emerald-400 bg-emerald-400/10' },
-                      { n: 'Supplies: Milk', d: '12m ago', a: '-KSh 1,200', s: 'text-slate-400 bg-slate-800' },
-                      { n: 'Downtown Shop', d: '45m ago', a: '+KSh 12,400', s: 'text-emerald-400 bg-emerald-400/10' },
-                      { n: 'Esther Howard', d: '1h ago', a: '+KSh 450', s: 'text-emerald-400 bg-emerald-400/10' },
-                    ].map((tx, idx) => (
-                      <div key={idx} className="flex justify-between items-center p-4 rounded-[16px] bg-slate-800/30 border border-slate-700/40 hover:bg-slate-700/50 transition-all group cursor-pointer shadow-sm">
-                        <div>
-                          <p className="text-[11px] font-black text-slate-200 group-hover:text-white mb-1 tracking-tight">{tx.n}</p>
-                          <p className="text-[9px] text-slate-500 font-bold uppercase">{tx.d}</p>
+                {/* Dashboard Content */}
+                <div className="flex-1 p-8 grid grid-cols-3 gap-8 bg-[#0E1526]">
+                  
+                  {/* Left Column (Charts & Stats) */}
+                  <div className="col-span-2 flex flex-col gap-8">
+                    <div className="grid grid-cols-2 gap-6">
+                      <div className="bg-[#111827] border border-slate-700/50 rounded-[20px] p-6 shadow-2xl hover:border-blue-500/30 transition-all group">
+                        <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.15em] mb-4">Daily Volume</p>
+                        <div className="flex items-end justify-between">
+                          <h3 className="text-3xl font-black text-white leading-none tracking-tighter">KSh 124,563.00</h3>
+                          <span className="text-[10px] font-black text-emerald-400 bg-emerald-400/10 px-2 py-1 rounded-md translate-y-1">+12%</span>
                         </div>
-                        <span className={`text-[10px] font-black px-2 py-1 rounded-md ${tx.s}`}>{tx.a}</span>
                       </div>
-                    ))}
+                      <div className="bg-[#111827] border border-slate-700/50 rounded-[20px] p-6 shadow-2xl hover:border-purple-500/30 transition-all">
+                        <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.15em] mb-4">Avg Transaction</p>
+                        <div className="flex items-end justify-between">
+                          <h3 className="text-3xl font-black text-white leading-none tracking-tighter">KSh 3,240.50</h3>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* High Quality Chart */}
+                    <div className="flex-1 bg-[#111827] border border-slate-700/50 rounded-[24px] p-6 flex flex-col shadow-2xl relative group">
+                      <div className="flex justify-between items-center mb-8">
+                        <div>
+                          <h4 className="text-base font-black text-white tracking-tight">Revenue Stream</h4>
+                          <p className="text-xs text-slate-500 font-bold mt-1">Updated 2 minutes ago</p>
+                        </div>
+                        <div className="flex gap-2">
+                          <div className="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center">
+                              <span className="text-white text-xs font-bold">W</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex-1 w-full relative z-10 bottom-0 pointer-events-none">
+                        <svg viewBox="0 0 500 150" className="absolute bottom-0 w-full h-[140%] drop-shadow-[0_15px_30px_rgba(59,130,246,0.6)]" preserveAspectRatio="none">
+                           <path d="M0,130 C50,110 100,140 150,80 C200,20 250,90 300,40 C350,0 400,60 450,20 C480,10 500,30 500,30 L500,150 L0,150 Z" fill="url(#blueHeroGrad)" stroke="none" />
+                           <path d="M0,130 C50,110 100,140 150,80 C200,20 250,90 300,40 C350,0 400,60 450,20 C480,10 500,30 500,30" fill="none" stroke="#4da6ff" strokeWidth="4" strokeLinecap="round" />
+                           <defs>
+                             <linearGradient id="blueHeroGrad" x1="0" y1="0" x2="0" y2="1">
+                               <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.4"/>
+                               <stop offset="100%" stopColor="#3B82F6" stopOpacity="0"/>
+                             </linearGradient>
+                           </defs>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right Column (Transactions Table) */}
+                  <div className="col-span-1 bg-[#111827] border border-slate-700/50 rounded-[24px] flex flex-col overflow-hidden shadow-2xl ring-1 ring-white/5">
+                    <div className="px-6 py-5 border-b border-slate-700/50 bg-slate-900/40">
+                      <h4 className="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">Live Stream</h4>
+                    </div>
+                    <div className="flex-1 overflow-y-auto p-4 space-y-3">
+                      {[
+                        { n: 'Main Branch Cafe', d: '2m ago', a: '+KSh 340', s: 'text-emerald-400 bg-emerald-400/10' },
+                        { n: 'Supplies: Milk', d: '12m ago', a: '-KSh 1,200', s: 'text-slate-400 bg-slate-800' },
+                        { n: 'Downtown Shop', d: '45m ago', a: '+KSh 12,400', s: 'text-emerald-400 bg-emerald-400/10' },
+                        { n: 'Esther Howard', d: '1h ago', a: '+KSh 450', s: 'text-emerald-400 bg-emerald-400/10' },
+                      ].map((tx, idx) => (
+                        <div key={idx} className="flex justify-between items-center p-4 rounded-[16px] bg-slate-800/30 border border-slate-700/40 hover:bg-slate-700/50 transition-all group cursor-pointer shadow-sm">
+                          <div>
+                            <p className="text-[11px] font-black text-slate-200 group-hover:text-white mb-1 tracking-tight">{tx.n}</p>
+                            <p className="text-[9px] text-slate-500 font-bold uppercase">{tx.d}</p>
+                          </div>
+                          <span className={`text-[10px] font-black px-2 py-1 rounded-md ${tx.s}`}>{tx.a}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
+
+              {/* TABLET POS (The Secondary Device) */}
+              <div className="absolute left-[-60px] lg:left-[-40px] bottom-[-40px] lg:bottom-[-20px] w-[210px] h-[360px] bg-[#020617] border-[6px] border-slate-900 rounded-[36px] shadow-[0_60px_120px_-30px_rgba(0,0,0,1),-40px_0_80px_-20px_rgba(0,0,0,0.8)] transform lg:rotate-y-[15deg] lg:rotate-x-[4deg] translate-z-[120px] hover:translate-z-[150px] transition-all duration-1000 z-50 p-2 border-t-slate-700/50">
+                 
+                 {/* Screen Realism */}
+                 <div className="w-full h-full bg-white rounded-[26px] overflow-hidden flex flex-col border border-slate-300 relative shadow-inner">
+                    {/* Status Bar */}
+                    <div className="h-6 flex justify-between items-center px-5 bg-slate-50 shrink-0">
+                       <span className="text-[8px] font-black text-slate-900 tracking-wider">12:30</span>
+                       <div className="flex gap-1">
+                          <div className="w-1.5 h-1.5 rounded-full bg-slate-800/20"></div>
+                          <div className="w-2.5 h-1.2 rounded-[1px] bg-emerald-500"></div>
+                       </div>
+                    </div>
+
+                    <div className="bg-blue-600 p-6 flex flex-col items-center text-white shrink-0 shadow-lg relative overflow-hidden group">
+                       <div className="absolute inset-0 bg-gradient-to-tr from-indigo-700 to-transparent opacity-50"></div>
+                       <p className="text-[8px] font-black uppercase tracking-[0.2em] relative z-10 mb-2 opacity-60">Total Bill</p>
+                       <h2 className="text-[28px] font-black tracking-tighter relative z-10">KSh 3,240</h2>
+                       <div className="mt-4 px-4 py-1.5 bg-white/20 rounded-full text-[8px] font-black uppercase tracking-widest relative z-10 backdrop-blur-md">Awaiting Payment</div>
+                    </div>
+
+                    <div className="flex-1 p-4 flex flex-col gap-3 overflow-hidden">
+                       {[1,2,3].map(i => (
+                          <div key={i} className="flex justify-between items-center text-[10px] border-b border-slate-100 pb-2">
+                             <span className="text-slate-500 font-bold tracking-tight">Artisan Latte x{i}</span>
+                             <span className="text-slate-900 font-black tracking-tighter">KSh 450</span>
+                          </div>
+                       ))}
+                       
+                       <div className="mt-auto flex gap-2">
+                          <div className="flex-1 h-12 bg-slate-900 rounded-xl flex items-center justify-center text-white text-[10px] font-black shadow-lg shadow-black/30 cursor-pointer">CARD</div>
+                          <div className="flex-1 h-12 bg-blue-100 border border-blue-200 rounded-xl flex items-center justify-center text-blue-600 text-[10px] font-black cursor-pointer">MPESA</div>
+                       </div>
+                    </div>
+                 </div>
+                 {/* Apple bar */}
+                 <div className="absolute bottom-3 left-1/2 -translate-x-1/2 w-8 h-1 bg-black/10 rounded-full"></div>
+              </div>
+
             </div>
-
-            {/* TABLET POS (The Secondary Device) */}
-            <div className="absolute left-[-40px] bottom-[-20px] w-[210px] h-[360px] bg-[#020617] border-[6px] border-slate-900 rounded-[36px] shadow-[0_60px_120px_-30px_rgba(0,0,0,1),-40px_0_80px_-20px_rgba(0,0,0,0.8)] transform rotate-y-[15deg] rotate-x-[4deg] translate-z-[120px] hover:translate-z-[150px] transition-all duration-1000 z-50 p-2 border-t-slate-700/50">
-               
-               {/* Screen Realism */}
-               <div className="w-full h-full bg-white rounded-[26px] overflow-hidden flex flex-col border border-slate-300 relative shadow-inner">
-                  {/* Status Bar */}
-                  <div className="h-6 flex justify-between items-center px-5 bg-slate-50 shrink-0">
-                     <span className="text-[8px] font-black text-slate-900 tracking-wider">12:30</span>
-                     <div className="flex gap-1">
-                        <div className="w-1.5 h-1.5 rounded-full bg-slate-800/20"></div>
-                        <div className="w-2.5 h-1.2 rounded-[1px] bg-emerald-500"></div>
-                     </div>
-                  </div>
-
-                  <div className="bg-blue-600 p-6 flex flex-col items-center text-white shrink-0 shadow-lg relative overflow-hidden group">
-                     <div className="absolute inset-0 bg-gradient-to-tr from-indigo-700 to-transparent opacity-50"></div>
-                     <p className="text-[8px] font-black uppercase tracking-[0.2em] relative z-10 mb-2 opacity-60">Total Bill</p>
-                     <h2 className="text-[28px] font-black tracking-tighter relative z-10">KSh 3,240</h2>
-                     <div className="mt-4 px-4 py-1.5 bg-white/20 rounded-full text-[8px] font-black uppercase tracking-widest relative z-10 backdrop-blur-md">Awaiting Payment</div>
-                  </div>
-
-                  <div className="flex-1 p-4 flex flex-col gap-3 overflow-hidden">
-                     {[1,2,3].map(i => (
-                        <div key={i} className="flex justify-between items-center text-[10px] border-b border-slate-100 pb-2">
-                           <span className="text-slate-500 font-bold tracking-tight">Artisan Latte x{i}</span>
-                           <span className="text-slate-900 font-black tracking-tighter">KSh 450</span>
-                        </div>
-                     ))}
-                     
-                     <div className="mt-auto flex gap-2">
-                        <div className="flex-1 h-12 bg-slate-900 rounded-xl flex items-center justify-center text-white text-[10px] font-black shadow-lg shadow-black/30 cursor-pointer">CARD</div>
-                        <div className="flex-1 h-12 bg-blue-100 border border-blue-200 rounded-xl flex items-center justify-center text-blue-600 text-[10px] font-black cursor-pointer">MPESA</div>
-                     </div>
-                  </div>
-               </div>
-               {/* Apple bar */}
-               <div className="absolute bottom-3 left-1/2 -translate-x-1/2 w-8 h-1 bg-black/10 rounded-full"></div>
-            </div>
-
           </div>
         </div>
       </section>
