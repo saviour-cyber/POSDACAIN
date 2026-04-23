@@ -19,114 +19,120 @@ export default function LandingPage() {
         </Link>
       </nav>
 
-      {/* HERO */}
-      <section className="relative min-h-screen flex items-center px-6 lg:px-16 pt-20 overflow-hidden">
-        {/* Background Image & Overlay */}
-        <div 
-          className="absolute inset-0 z-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')" }}
-        />
-        <div className="absolute inset-0 z-0 bg-[#0b1220]/80 sm:bg-[#0b1220]/70" />
+      {/* HERO SECTION */}
+      <section className="relative min-h-[95vh] flex items-center px-6 lg:px-16 pt-24 pb-12 overflow-hidden bg-[#0b1220]">
+        {/* Subtle Gradient Overlays */}
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-600/5 blur-[120px] -z-10 animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-1/3 h-full bg-purple-600/5 blur-[120px] -z-10 animate-pulse"></div>
         
-        <div className="relative z-10 w-full grid lg:grid-cols-2 gap-12 items-center">
-          <div className="max-w-[600px] animate-fade-in-up">
-            <h1 className="text-5xl lg:text-6xl font-bold leading-[1.1] mb-6">
-              Revolutionize Your Business with <span className="text-[#4da6ff]">Advanced POS</span>
+        <div className="relative z-10 w-full grid lg:grid-cols-2 gap-16 items-center">
+          {/* Headline & CTAs */}
+          <div className="max-w-[650px] animate-fade-in-up">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6 group cursor-default">
+              <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+              <span className="text-[11px] font-bold text-blue-300 uppercase tracking-[0.2em]">Next-Gen POS Systems</span>
+            </div>
+            
+            <h1 className="text-6xl lg:text-7xl font-black leading-[1.05] mb-8 tracking-[-0.030em] text-white">
+              The Smart Way to <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">Scale Your Sales.</span>
             </h1>
-            <p className="text-lg text-gray-300 mb-8 pt-2">
-              Manage sales, inventory and analytics in one powerful system. The ultimate solution for modern retail & restaurants.
+            
+            <p className="text-xl text-gray-400 mb-10 leading-relaxed font-medium">
+              Manage inventory, process payments, and track real-time analytics 
+              with the world&apos;s most intuitive point-of-sale platform.
             </p>
-            <div className="flex flex-wrap gap-4">
+            
+            <div className="flex flex-wrap gap-5">
               <Link href="/register">
-                <button className="px-8 py-4 rounded-[30px] bg-[#4da6ff] hover:bg-[#3b92eb] hover:shadow-[0_0_20px_rgba(77,166,255,0.4)] text-white font-semibold transition-all transform hover:-translate-y-1">
-                  Get Started
+                <button className="px-10 py-5 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-extrabold text-lg transition-all transform hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-10px_rgba(37,99,235,0.5)] active:scale-95 shadow-xl shadow-blue-900/20 border border-white/10 flex items-center gap-3">
+                  Start FREE Trial
+                  <span className="bg-white/20 w-6 h-6 rounded-full flex items-center justify-center text-xs">→</span>
                 </button>
               </Link>
               <Link href="/login">
-                <button className="px-8 py-4 rounded-[30px] bg-transparent border border-white hover:bg-white/10 text-white font-semibold transition-all transform hover:-translate-y-1">
-                  Watch Demo
+                <button className="px-10 py-5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 text-white font-extrabold text-lg transition-all transform hover:-translate-y-1.5 backdrop-blur-md active:scale-95 flex items-center gap-2">
+                  Live Demo
+                  <div className="w-2 h-2 rounded-full bg-red-500 animate-ping"></div>
                 </button>
               </Link>
+            </div>
+
+            <div className="mt-12 flex items-center gap-6 opacity-60 grayscale hover:grayscale-0 transition-all">
+                <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">Trusted by leading retailers</p>
             </div>
           </div>
 
           {/* RIGHT SIDE HERO COMPONENT (Stripe/Shopify Realism) */}
-          <div className="relative hidden lg:flex items-center justify-center h-[700px] w-full perspective-1000 pl-10 z-10 animate-fade-in-up">
+          <div className="relative hidden lg:flex items-center justify-end h-[750px] w-full perspective-2000 z-10">
             
             {/* Deep Ambient Glow Background */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-gradient-to-r from-blue-600/30 via-indigo-600/30 to-purple-600/30 blur-[120px] rounded-full pointer-events-none -z-20"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br from-blue-600/40 via-transparent to-purple-600/40 blur-[150px] rounded-full pointer-events-none -z-20"></div>
 
-            {/* Main DOM Dashboard (No abstract boxes - Full Realism) */}
-            <div className="absolute right-0 top-10 w-[700px] h-[500px] bg-[#0E1526] border border-slate-700/60 rounded-xl shadow-[0_40px_80px_-20px_rgba(0,0,0,0.8),0_0_100px_-20px_rgba(99,102,241,0.2)] flex flex-col overflow-hidden transform rotate-y-[-8deg] rotate-x-[4deg] translate-x-10 translate-z-[-20px] hover:translate-z-[0px] hover:rotate-y-[-4deg] transition-all duration-700 z-10">
+            {/* MAIN DASHBOARD (The Focus) */}
+            <div className="relative w-[850px] h-[580px] bg-[#0E1526] border border-slate-700/60 rounded-2xl shadow-[0_60px_100px_-30px_rgba(0,0,0,0.9),0_0_120px_-30px_rgba(99,102,241,0.3)] flex flex-col overflow-hidden transform rotate-y-[-12deg] rotate-x-[6deg] translate-x-20 translate-z-[-40px] hover:translate-z-0 hover:rotate-y-[-6deg] transition-all duration-1000 z-10 ring-1 ring-white/5">
               
               {/* Dashboard Navbar */}
-              <div className="h-14 bg-[#111827] border-b border-slate-700/50 flex items-center justify-between px-6 shrink-0">
-                <div className="flex items-center gap-6">
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-slate-600 hover:bg-red-400 transition-colors"></div>
-                    <div className="w-3 h-3 rounded-full bg-slate-700 hover:bg-yellow-400 transition-colors"></div>
-                    <div className="w-3 h-3 rounded-full bg-slate-800 hover:bg-green-400 transition-colors"></div>
+              <div className="h-16 bg-[#111827] border-b border-slate-700/50 flex items-center justify-between px-8 shrink-0">
+                <div className="flex items-center gap-8">
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
+                    <div className="w-3 h-3 rounded-full bg-amber-500/50"></div>
+                    <div className="w-3 h-3 rounded-full bg-emerald-500/50"></div>
                   </div>
-                  <div className="flex gap-5 text-[13px] font-semibold text-slate-400">
-                    <span className="text-white bg-slate-800 px-3 py-1 rounded-md shadow-sm">Overview</span>
-                    <span className="hover:text-white cursor-pointer transition-colors py-1">Customers</span>
-                    <span className="hover:text-white cursor-pointer transition-colors py-1">Products</span>
-                    <span className="hover:text-white cursor-pointer transition-colors py-1">Settings</span>
+                  <div className="flex gap-6 text-[13px] font-bold text-slate-400">
+                    <span className="text-blue-400 pb-5 border-b-2 border-blue-400 translate-y-[10px]">Overview</span>
+                    <span className="hover:text-white cursor-pointer transition-colors">Sales Tracking</span>
+                    <span className="hover:text-white cursor-pointer transition-colors">Inventory</span>
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-56 h-8 rounded-md bg-slate-800 border border-slate-700 flex items-center px-3 shadow-inner">
-                    <span className="text-slate-500 text-xs">Search transactions...</span>
+                <div className="flex items-center gap-5">
+                  <div className="w-10 h-10 rounded-full border-2 border-slate-700 bg-[#0E1526] flex items-center justify-center">
+                    <Users size={18} className="text-slate-400" />
                   </div>
-                  <div className="w-8 h-8 rounded-full border border-slate-600 bg-gradient-to-tr from-purple-500 to-blue-500 shadow-md"></div>
                 </div>
               </div>
 
               {/* Dashboard Content */}
-              <div className="flex-1 p-6 grid grid-cols-3 gap-6 bg-[#0E1526]">
+              <div className="flex-1 p-8 grid grid-cols-3 gap-8 bg-[#0E1526]">
                 
                 {/* Left Column (Charts & Stats) */}
-                <div className="col-span-2 flex flex-col gap-6 relative z-10">
-                  {/* Top Analytics Cards */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-[#111827] border border-slate-700/50 rounded-xl p-5 flex flex-col justify-between shadow-lg hover:border-slate-600 transition-colors">
-                      <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Gross Volume</p>
-                      <div className="mt-3 flex items-end justify-between">
-                        <h3 className="text-[28px] font-black text-white leading-none">$124,563.00</h3>
-                        <span className="text-xs font-bold text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded shadow-sm flex items-center gap-1">+14.2%</span>
+                <div className="col-span-2 flex flex-col gap-8">
+                  <div className="grid grid-cols-2 gap-6">
+                    <div className="bg-[#111827] border border-slate-700/50 rounded-[20px] p-6 shadow-2xl hover:border-blue-500/30 transition-all group">
+                      <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.15em] mb-4">Daily Volume</p>
+                      <div className="flex items-end justify-between">
+                        <h3 className="text-3xl font-black text-white leading-none tracking-tighter">KSh 124,563.00</h3>
+                        <span className="text-[10px] font-black text-emerald-400 bg-emerald-400/10 px-2 py-1 rounded-md translate-y-1">+12%</span>
                       </div>
                     </div>
-                    <div className="bg-[#111827] border border-slate-700/50 rounded-xl p-5 flex flex-col justify-between shadow-lg hover:border-slate-600 transition-colors">
-                      <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Active POS Terminals</p>
-                      <div className="mt-3 flex items-end justify-between">
-                        <h3 className="text-[28px] font-black text-white leading-none">4 Locations</h3>
-                        <span className="text-xs font-bold text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded shadow-sm flex items-center gap-1">Online</span>
+                    <div className="bg-[#111827] border border-slate-700/50 rounded-[20px] p-6 shadow-2xl hover:border-purple-500/30 transition-all">
+                      <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.15em] mb-4">Avg Transaction</p>
+                      <div className="flex items-end justify-between">
+                        <h3 className="text-3xl font-black text-white leading-none tracking-tighter">KSh 3,240.50</h3>
                       </div>
                     </div>
                   </div>
 
-                  {/* High Quality Chart Box (Fully Clear SVG) */}
-                  <div className="flex-1 bg-[#111827] border border-slate-700/50 rounded-xl pt-5 mx-0 flex flex-col overflow-hidden relative shadow-lg hover:border-slate-600 transition-colors">
-                    <div className="px-6 pb-2 flex justify-between items-center z-10">
-                      <h4 className="text-[15px] font-bold text-slate-200">Revenue Growth</h4>
-                      <select className="bg-[#0E1526] border border-slate-700 text-[11px] font-semibold text-slate-300 rounded-md px-3 py-1.5 outline-none shadow-inner cursor-pointer hover:border-slate-500 transition-colors">
-                        <option>Last 7 Days</option>
-                      </select>
+                  {/* High Quality Chart */}
+                  <div className="flex-1 bg-[#111827] border border-slate-700/50 rounded-[24px] p-6 flex flex-col shadow-2xl relative group">
+                    <div className="flex justify-between items-center mb-8">
+                      <div>
+                        <h4 className="text-base font-black text-white tracking-tight">Revenue Stream</h4>
+                        <p className="text-xs text-slate-500 font-bold mt-1">Updated 2 minutes ago</p>
+                      </div>
+                      <div className="flex gap-2">
+                        <div className="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">W</span>
+                        </div>
+                      </div>
                     </div>
-                    {/* Background Grid Lines */}
-                    <div className="absolute inset-x-0 bottom-0 top-16 flex flex-col justify-between px-6 py-4 z-0">
-                       <div className="w-full border-b border-slate-700/30"></div>
-                       <div className="w-full border-b border-slate-700/30"></div>
-                       <div className="w-full border-b border-slate-700/30"></div>
-                       <div className="w-full border-b border-slate-700/60"></div>
-                    </div>
-                    {/* SVG Curve perfectly mapped mapped to data bounds */}
-                    <div className="flex-1 w-full relative z-10 mt-2 pointer-events-none">
-                      <svg viewBox="0 0 500 150" className="absolute bottom-0 w-full h-[120%] opacity-100 drop-shadow-[0_8px_16px_rgba(59,130,246,0.5)]" preserveAspectRatio="none">
-                         <path d="M0,130 C40,110 80,120 120,80 C160,40 200,90 250,50 C300,10 350,60 400,30 C450,0 500,20 500,20 L500,150 L0,150 Z" fill="url(#blueGrad)" stroke="none" />
-                         <path d="M0,130 C40,110 80,120 120,80 C160,40 200,90 250,50 C300,10 350,60 400,30 C450,0 500,20 500,20" fill="none" stroke="#60A5FA" strokeWidth="3" />
+                    <div className="flex-1 w-full relative z-10 bottom-0 pointer-events-none">
+                      <svg viewBox="0 0 500 150" className="absolute bottom-0 w-full h-[140%] drop-shadow-[0_15px_30px_rgba(59,130,246,0.6)]" preserveAspectRatio="none">
+                         <path d="M0,130 C50,110 100,140 150,80 C200,20 250,90 300,40 C350,0 400,60 450,20 C480,10 500,30 500,30 L500,150 L0,150 Z" fill="url(#blueHeroGrad)" stroke="none" />
+                         <path d="M0,130 C50,110 100,140 150,80 C200,20 250,90 300,40 C350,0 400,60 450,20 C480,10 500,30 500,30" fill="none" stroke="#4da6ff" strokeWidth="4" strokeLinecap="round" />
                          <defs>
-                           <linearGradient id="blueGrad" x1="0" y1="0" x2="0" y2="1">
+                           <linearGradient id="blueHeroGrad" x1="0" y1="0" x2="0" y2="1">
                              <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.4"/>
                              <stop offset="100%" stopColor="#3B82F6" stopOpacity="0"/>
                            </linearGradient>
@@ -137,82 +143,67 @@ export default function LandingPage() {
                 </div>
 
                 {/* Right Column (Transactions Table) */}
-                <div className="col-span-1 bg-[#111827] border border-slate-700/50 rounded-xl flex flex-col overflow-hidden shadow-lg relative z-10 hover:border-slate-600 transition-colors">
-                  <div className="px-5 py-4 border-b border-slate-700/50 bg-[#0E1526]/50 shrink-0">
-                    <h4 className="text-[13px] font-bold text-white uppercase tracking-wider">Recent Activity</h4>
+                <div className="col-span-1 bg-[#111827] border border-slate-700/50 rounded-[24px] flex flex-col overflow-hidden shadow-2xl ring-1 ring-white/5">
+                  <div className="px-6 py-5 border-b border-slate-700/50 bg-slate-900/40">
+                    <h4 className="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">Live Stream</h4>
                   </div>
-                  <div className="flex-1 overflow-y-auto p-3 space-y-2">
+                  <div className="flex-1 overflow-y-auto p-4 space-y-3">
                     {[
-                      { n: 'Jane Cooper', d: 'Today, 2:40 PM', a: '+$145.00', s: 'text-emerald-400 bg-emerald-400/10' },
-                      { n: 'Refund processed', d: 'Today, 1:12 PM', a: '-$32.50', s: 'text-slate-400 bg-slate-800' },
-                      { n: 'Bessie Cooper', d: 'Yesterday, 8:00 AM', a: '+$98.20', s: 'text-emerald-400 bg-emerald-400/10' },
-                      { n: 'Esther Howard', d: 'Oct 23, 4:24 PM', a: '+$340.00', s: 'text-emerald-400 bg-emerald-400/10' },
-                      { n: 'Subscription fee', d: 'Oct 23, 1:00 PM', a: '-$49.00', s: 'text-slate-400 bg-slate-800' },
+                      { n: 'Main Branch Cafe', d: '2m ago', a: '+KSh 340', s: 'text-emerald-400 bg-emerald-400/10' },
+                      { n: 'Supplies: Milk', d: '12m ago', a: '-KSh 1,200', s: 'text-slate-400 bg-slate-800' },
+                      { n: 'Downtown Shop', d: '45m ago', a: '+KSh 12,400', s: 'text-emerald-400 bg-emerald-400/10' },
+                      { n: 'Esther Howard', d: '1h ago', a: '+KSh 450', s: 'text-emerald-400 bg-emerald-400/10' },
                     ].map((tx, idx) => (
-                      <div key={idx} className="flex justify-between items-center p-3 rounded-lg hover:bg-slate-700/40 transition-colors cursor-pointer border border-transparent hover:border-slate-700 shadow-sm">
+                      <div key={idx} className="flex justify-between items-center p-4 rounded-[16px] bg-slate-800/30 border border-slate-700/40 hover:bg-slate-700/50 transition-all group cursor-pointer shadow-sm">
                         <div>
-                          <p className="text-xs font-bold text-slate-200 mb-1">{tx.n}</p>
-                          <p className="text-[10px] text-slate-500 font-medium">{tx.d}</p>
+                          <p className="text-[11px] font-black text-slate-200 group-hover:text-white mb-1 tracking-tight">{tx.n}</p>
+                          <p className="text-[9px] text-slate-500 font-bold uppercase">{tx.d}</p>
                         </div>
-                        <span className={`text-[11px] font-black px-2 py-1 rounded shadow-inner ${tx.s}`}>{tx.a}</span>
+                        <span className={`text-[10px] font-black px-2 py-1 rounded-md ${tx.s}`}>{tx.a}</span>
                       </div>
                     ))}
                   </div>
                 </div>
-
               </div>
             </div>
 
-            {/* Device Mockup (Secondary, smaller, overlapping in front, clear UI) */}
-            <div className="absolute left-0 bottom-6 w-[220px] h-[380px] bg-[#020617] border-[4px] border-slate-800 rounded-[30px] shadow-[0_50px_100px_-20px_rgba(0,0,0,1),20px_0_40px_-10px_rgba(0,0,0,0.6)] transform rotate-y-[10deg] rotate-x-[5deg] translate-z-[100px] hover:translate-z-[120px] hover:rotate-y-[5deg] transition-all duration-700 z-30 p-1.5 backdrop-blur-3xl">
+            {/* TABLET POS (The Secondary Device) */}
+            <div className="absolute left-[-40px] bottom-[-20px] w-[210px] h-[360px] bg-[#020617] border-[6px] border-slate-900 rounded-[36px] shadow-[0_60px_120px_-30px_rgba(0,0,0,1),-40px_0_80px_-20px_rgba(0,0,0,0.8)] transform rotate-y-[15deg] rotate-x-[4deg] translate-z-[120px] hover:translate-z-[150px] transition-all duration-1000 z-50 p-2 border-t-slate-700/50">
                
-               {/* Ambient Terminal Reflection */}
-               <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/5 to-transparent z-50 rounded-[26px]"></div>
-               
-               {/* Terminal Screen Realism */}
-               <div className="w-full h-full bg-white rounded-[22px] overflow-hidden flex flex-col border border-slate-300 relative shadow-inner z-10">
-                  
+               {/* Screen Realism */}
+               <div className="w-full h-full bg-white rounded-[26px] overflow-hidden flex flex-col border border-slate-300 relative shadow-inner">
                   {/* Status Bar */}
-                  <div className="h-5 flex justify-between items-center px-4 bg-gray-50 border-b border-gray-100 shrink-0">
-                     <span className="text-[8px] font-black text-gray-800 tracking-wider">12:30</span>
-                     <div className="flex gap-1 items-center">
-                        <div className="w-1.5 h-1.5 rounded-full border border-gray-400 bg-gray-200"></div>
-                        <div className="w-2.5 h-1.5 bg-gray-800 rounded-[2px]"></div>
+                  <div className="h-6 flex justify-between items-center px-5 bg-slate-50 shrink-0">
+                     <span className="text-[8px] font-black text-slate-900 tracking-wider">12:30</span>
+                     <div className="flex gap-1">
+                        <div className="w-1.5 h-1.5 rounded-full bg-slate-800/20"></div>
+                        <div className="w-2.5 h-1.2 rounded-[1px] bg-emerald-500"></div>
                      </div>
                   </div>
 
-                  {/* High Quality Checkout View */}
-                  <div className="bg-gray-50 border-b border-gray-200 p-5 shrink-0 flex flex-col items-center shadow-sm relative overflow-hidden">
-                     <div className="absolute right-0 bottom-0 w-24 h-24 bg-blue-500/5 rounded-full blur-xl translate-x-1/2 translate-y-1/2"></div>
-                     <p className="text-[9px] text-slate-500 font-bold mb-1 uppercase tracking-widest relative z-10">Amount Due</p>
-                     <h2 className="text-[32px] font-black text-slate-900 tracking-tighter relative z-10">$24.50</h2>
-                     <p className="text-[9px] text-blue-600 font-semibold mt-1 bg-blue-50 px-2 py-0.5 rounded-full relative z-10">Tap, insert, or swipe</p>
+                  <div className="bg-blue-600 p-6 flex flex-col items-center text-white shrink-0 shadow-lg relative overflow-hidden group">
+                     <div className="absolute inset-0 bg-gradient-to-tr from-indigo-700 to-transparent opacity-50"></div>
+                     <p className="text-[8px] font-black uppercase tracking-[0.2em] relative z-10 mb-2 opacity-60">Total Bill</p>
+                     <h2 className="text-[28px] font-black tracking-tighter relative z-10">KSh 3,240</h2>
+                     <div className="mt-4 px-4 py-1.5 bg-white/20 rounded-full text-[8px] font-black uppercase tracking-widest relative z-10 backdrop-blur-md">Awaiting Payment</div>
                   </div>
 
-                  {/* Real POS Receipt Grid */}
-                  <div className="flex-1 bg-white p-4 flex flex-col gap-3">
-                     <div className="flex justify-between items-center text-[11px] border-b border-slate-100 pb-2">
-                        <span className="text-slate-600 font-bold">Iced Latte x2</span>
-                        <span className="text-slate-900 font-black">$9.00</span>
-                     </div>
-                     <div className="flex justify-between items-center text-[11px] border-b border-slate-100 pb-2">
-                        <span className="text-slate-600 font-bold">Pastry Box</span>
-                        <span className="text-slate-900 font-black">$14.00</span>
-                     </div>
-                     <div className="flex justify-between items-center text-[11px] pb-2 text-emerald-600">
-                        <span className="font-bold">Tax (VAT 8%)</span>
-                        <span className="font-black">$1.50</span>
-                     </div>
-
-                     <div className="mt-auto grid grid-cols-2 gap-2">
-                       <div className="bg-slate-100/80 border border-slate-200 text-slate-700 text-[11px] font-black py-2.5 rounded-xl text-center hover:bg-slate-200 transition-colors shadow-sm cursor-pointer">Cash</div>
-                       <div className="bg-blue-600 border border-blue-500 text-white shadow-lg shadow-blue-600/30 text-[11px] font-black py-2.5 rounded-xl text-center hover:bg-blue-700 transition-all cursor-pointer">Card</div>
+                  <div className="flex-1 p-4 flex flex-col gap-3 overflow-hidden">
+                     {[1,2,3].map(i => (
+                        <div key={i} className="flex justify-between items-center text-[10px] border-b border-slate-100 pb-2">
+                           <span className="text-slate-500 font-bold tracking-tight">Artisan Latte x{i}</span>
+                           <span className="text-slate-900 font-black tracking-tighter">KSh 450</span>
+                        </div>
+                     ))}
+                     
+                     <div className="mt-auto flex gap-2">
+                        <div className="flex-1 h-12 bg-slate-900 rounded-xl flex items-center justify-center text-white text-[10px] font-black shadow-lg shadow-black/30 cursor-pointer">CARD</div>
+                        <div className="flex-1 h-12 bg-blue-100 border border-blue-200 rounded-xl flex items-center justify-center text-blue-600 text-[10px] font-black cursor-pointer">MPESA</div>
                      </div>
                   </div>
-                  
-                  {/* Apple glass swipe bar at bottom */}
-                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-10 h-1 bg-slate-900 rounded-full opacity-20"></div>
                </div>
+               {/* Apple bar */}
+               <div className="absolute bottom-3 left-1/2 -translate-x-1/2 w-8 h-1 bg-black/10 rounded-full"></div>
             </div>
 
           </div>
