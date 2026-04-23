@@ -1,6 +1,5 @@
 import prisma from "@/lib/prisma";
 import DashboardShell from "@/components/layout/DashboardShell";
-import LandingPage from "@/components/LandingPage";
 import { 
   Users, 
   Package, 
@@ -16,12 +15,13 @@ import { authOptions } from "./api/auth/[...nextauth]/route";
 import SystemStatusWidgets from "./SystemStatusWidgets";
 import { getProcurementStats } from "./inventory/actions";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default async function Dashboard() {
   const session = await getServerSession(authOptions);
 
   if (!session) {
-    return <LandingPage />;
+    redirect('/login');
   }
 
   const [productCount, customerCount] = await Promise.all([
