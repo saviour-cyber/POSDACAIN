@@ -6,10 +6,13 @@ export default function LandingPage() {
     <div className="min-h-screen bg-[#0b1220] text-white font-sans selection:bg-[#4da6ff] selection:text-white overflow-x-hidden">
       
       {/* NAVBAR */}
-      <nav className="fixed w-full z-[100] flex justify-between items-center px-6 lg:px-16 py-4 bg-[#0b1220]/80 backdrop-blur-md border-b border-white/5">
-        <div className="flex items-center gap-3">
-          <img src="/logo.png" alt="Dacain Systems Logo" className="h-10 w-auto object-contain" />
-          <span className="text-xl font-bold tracking-tight hidden sm:inline-block">Dacain Systems</span>
+      <nav className="fixed w-full z-[100] flex justify-between items-center px-6 lg:px-16 py-6 bg-[#0b1220]/90 backdrop-blur-xl border-b border-white/5 transition-all">
+        <div className="flex items-center gap-4 group cursor-pointer">
+          <div className="relative">
+            <div className="absolute -inset-2 bg-blue-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <img src="/logo.png" alt="Dacain Systems Logo" className="h-14 lg:h-16 w-auto object-contain relative z-10 drop-shadow-2xl brightness-110" />
+          </div>
+          <span className="text-2xl font-black tracking-tight hidden sm:inline-block bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">Dacain Systems</span>
         </div>
         <div className="hidden md:flex gap-6 items-center">
           <Link href="#" className="hover:text-[#4da6ff] transition-colors">Home</Link>
@@ -184,10 +187,11 @@ export default function LandingPage() {
                        </div>
                     </div>
 
-                    <div className="bg-blue-600 p-6 flex flex-col items-center text-white shrink-0 shadow-lg relative overflow-hidden group">
-                       <div className="absolute inset-0 bg-gradient-to-tr from-indigo-700 to-transparent opacity-50"></div>
-                       <p className="text-[8px] font-black uppercase tracking-[0.2em] relative z-10 mb-2 opacity-60">Total Bill</p>
-                       <h2 className="text-[28px] font-black tracking-tighter relative z-10">KSh 3,240</h2>
+                    <div className="bg-gradient-to-br from-indigo-600 to-blue-700 p-6 flex flex-col items-center text-white shrink-0 shadow-lg relative overflow-hidden group">
+                       <div className="absolute inset-0 bg-white/10 opacity-20 group-hover:opacity-30 transition-opacity"></div>
+                       <img src="/logo.png" alt="Dacain Logo" className="h-10 w-auto mb-3 invert brightness-200" />
+                       <p className="text-[10px] font-black uppercase tracking-[0.2em] relative z-10 mb-1 opacity-80">Total Bill</p>
+                       <h2 className="text-[32px] font-black tracking-tighter relative z-10">KSh 3,240</h2>
                        <div className="mt-4 px-4 py-1.5 bg-white/20 rounded-full text-[8px] font-black uppercase tracking-widest relative z-10 backdrop-blur-md">Awaiting Payment</div>
                     </div>
 
@@ -282,11 +286,11 @@ export default function LandingPage() {
       {/* FOOTER */}
       <footer id="contact" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-6 lg:px-16 py-16 bg-[#050a15] text-sm border-t border-white/10">
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <img src="/logo.png" alt="Dacain Systems" className="h-8 w-auto opacity-80" />
-              <h4 className="text-xl font-bold text-white">Dacain Systems</h4>
+            <div className="flex items-center gap-4 mb-8">
+              <img src="/logo.png" alt="Dacain Systems" className="h-12 w-auto brightness-125" />
+              <h4 className="text-2xl font-black text-white">Dacain Systems</h4>
             </div>
-            <p className="text-[#ccc] mb-4">All-in-one POS system for modern businesses.</p>
+            <p className="text-gray-400 leading-relaxed mb-6">Empowering businesses with the next generation of sales and inventory management tools.</p>
           </div>
           <div>
               <h4 className="text-lg font-bold mb-4">Links</h4>
