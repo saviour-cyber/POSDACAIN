@@ -50,80 +50,111 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* RIGHT SIDE HERO MOCKUP (CSS Illusion) */}
-          <div className="relative hidden lg:flex items-center justify-center h-[600px] w-full perspective-1000 pl-16">
-            {/* Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-to-tr from-[#6a5cff]/30 to-[#4da6ff]/30 blur-[100px] rounded-full pointer-events-none -z-10"></div>
+          {/* RIGHT SIDE HERO COMPONENT (Stripe/Shopify Realism) */}
+          <div className="relative hidden lg:flex items-center justify-center h-[700px] w-full perspective-1000 pl-10 z-10 animate-fade-in-up">
+            
+            {/* Deep Ambient Glow Background */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-gradient-to-r from-blue-600/30 via-indigo-600/30 to-purple-600/30 blur-[120px] rounded-full pointer-events-none -z-20"></div>
 
-            {/* Desktop Dashboard */}
-            <div className="absolute right-0 w-[650px] h-[420px] bg-[#0b1220]/80 backdrop-blur-3xl border border-white/10 rounded-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8),0_0_80px_-20px_rgba(77,166,255,0.2)] p-5 transform rotate-y-[-10deg] rotate-x-[5deg] translate-z-[-50px] hover:translate-z-[-20px] hover:rotate-y-[-5deg] transition-transform duration-700">
+            {/* Main DOM Dashboard (No abstract boxes - Full Realism) */}
+            <div className="absolute right-0 top-10 w-[700px] h-[500px] bg-[#0E1526] border border-slate-700/60 rounded-xl shadow-[0_40px_80px_-20px_rgba(0,0,0,0.8),0_0_100px_-20px_rgba(99,102,241,0.2)] flex flex-col overflow-hidden transform rotate-y-[-8deg] rotate-x-[4deg] translate-x-10 translate-z-[-20px] hover:translate-z-[0px] hover:rotate-y-[-4deg] transition-all duration-700 z-10">
               
-              {/* Dashboard Layout: Sidebar + Canvas */}
-              <div className="flex h-full gap-5">
-                
-                {/* Sidebar */}
-                <div className="w-14 shrink-0 flex flex-col gap-4 border-r border-white/5 pr-4">
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#4da6ff] to-[#6a5cff] shadow-lg shadow-[#4da6ff]/30 mb-4"></div>
-                  {[1,2,3,4].map(i => (
-                     <div key={i} className="w-6 h-6 rounded-md bg-white/5 hover:bg-white/20 transition-colors cursor-default"></div>
-                  ))}
-                  <div className="mt-auto w-8 h-8 rounded-full bg-slate-800 border my-1 border-slate-600"></div>
+              {/* Dashboard Navbar */}
+              <div className="h-14 bg-[#111827] border-b border-slate-700/50 flex items-center justify-between px-6 shrink-0">
+                <div className="flex items-center gap-6">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-slate-600 hover:bg-red-400 transition-colors"></div>
+                    <div className="w-3 h-3 rounded-full bg-slate-700 hover:bg-yellow-400 transition-colors"></div>
+                    <div className="w-3 h-3 rounded-full bg-slate-800 hover:bg-green-400 transition-colors"></div>
+                  </div>
+                  <div className="flex gap-5 text-[13px] font-semibold text-slate-400">
+                    <span className="text-white bg-slate-800 px-3 py-1 rounded-md shadow-sm">Overview</span>
+                    <span className="hover:text-white cursor-pointer transition-colors py-1">Customers</span>
+                    <span className="hover:text-white cursor-pointer transition-colors py-1">Products</span>
+                    <span className="hover:text-white cursor-pointer transition-colors py-1">Settings</span>
+                  </div>
                 </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-56 h-8 rounded-md bg-slate-800 border border-slate-700 flex items-center px-3 shadow-inner">
+                    <span className="text-slate-500 text-xs">Search transactions...</span>
+                  </div>
+                  <div className="w-8 h-8 rounded-full border border-slate-600 bg-gradient-to-tr from-purple-500 to-blue-500 shadow-md"></div>
+                </div>
+              </div>
 
-                {/* Main Canvas */}
-                <div className="flex-1 flex flex-col gap-5">
-                  <div className="flex justify-between items-center">
-                    <div className="w-32 h-4 rounded-full bg-white/10"></div>
-                    <div className="flex gap-2">
-                      <div className="w-20 h-6 rounded-full bg-[#4da6ff]/20 border border-[#4da6ff]/40"></div>
-                      <div className="w-6 h-6 rounded-full bg-white/10"></div>
+              {/* Dashboard Content */}
+              <div className="flex-1 p-6 grid grid-cols-3 gap-6 bg-[#0E1526]">
+                
+                {/* Left Column (Charts & Stats) */}
+                <div className="col-span-2 flex flex-col gap-6 relative z-10">
+                  {/* Top Analytics Cards */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-[#111827] border border-slate-700/50 rounded-xl p-5 flex flex-col justify-between shadow-lg hover:border-slate-600 transition-colors">
+                      <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Gross Volume</p>
+                      <div className="mt-3 flex items-end justify-between">
+                        <h3 className="text-[28px] font-black text-white leading-none">$124,563.00</h3>
+                        <span className="text-xs font-bold text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded shadow-sm flex items-center gap-1">+14.2%</span>
+                      </div>
+                    </div>
+                    <div className="bg-[#111827] border border-slate-700/50 rounded-xl p-5 flex flex-col justify-between shadow-lg hover:border-slate-600 transition-colors">
+                      <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Active POS Terminals</p>
+                      <div className="mt-3 flex items-end justify-between">
+                        <h3 className="text-[28px] font-black text-white leading-none">4 Locations</h3>
+                        <span className="text-xs font-bold text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded shadow-sm flex items-center gap-1">Online</span>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Top KPIs (Floating Glass Cards) */}
-                  <div className="flex gap-4">
-                    <div className="flex-1 h-20 bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col justify-between backdrop-blur-md hover:-translate-y-1 transition-transform shadow-lg shadow-black/20 cursor-default">
-                       <div className="w-16 h-2 bg-white/20 rounded-full"></div>
-                       <div className="flex justify-between items-end">
-                         <div className="w-20 h-5 bg-white/80 rounded-md"></div>
-                         <div className="w-8 h-3 bg-emerald-400 rounded-full shadow-[0_0_10px_rgba(52,211,153,0.5)]"></div>
-                       </div>
+                  {/* High Quality Chart Box (Fully Clear SVG) */}
+                  <div className="flex-1 bg-[#111827] border border-slate-700/50 rounded-xl pt-5 mx-0 flex flex-col overflow-hidden relative shadow-lg hover:border-slate-600 transition-colors">
+                    <div className="px-6 pb-2 flex justify-between items-center z-10">
+                      <h4 className="text-[15px] font-bold text-slate-200">Revenue Growth</h4>
+                      <select className="bg-[#0E1526] border border-slate-700 text-[11px] font-semibold text-slate-300 rounded-md px-3 py-1.5 outline-none shadow-inner cursor-pointer hover:border-slate-500 transition-colors">
+                        <option>Last 7 Days</option>
+                      </select>
                     </div>
-                    <div className="flex-1 h-20 bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col justify-between backdrop-blur-md hover:-translate-y-1 transition-transform shadow-lg shadow-black/20 cursor-default">
-                       <div className="w-16 h-2 bg-white/20 rounded-full"></div>
-                       <div className="flex justify-between items-end">
-                         <div className="w-20 h-5 bg-white/80 rounded-md"></div>
-                         <div className="w-8 h-3 bg-rose-400 rounded-full shadow-[0_0_10px_rgba(251,113,133,0.5)]"></div>
-                       </div>
+                    {/* Background Grid Lines */}
+                    <div className="absolute inset-x-0 bottom-0 top-16 flex flex-col justify-between px-6 py-4 z-0">
+                       <div className="w-full border-b border-slate-700/30"></div>
+                       <div className="w-full border-b border-slate-700/30"></div>
+                       <div className="w-full border-b border-slate-700/30"></div>
+                       <div className="w-full border-b border-slate-700/60"></div>
                     </div>
-                  </div>
-
-                  {/* Big Chart Area */}
-                  <div className="flex-1 rounded-xl bg-gradient-to-b from-[#4da6ff]/10 to-transparent border border-white/10 relative overflow-hidden flex items-end shadow-inner">
-                      <svg viewBox="0 0 400 100" className="absolute bottom-0 w-[110%] -left-[5%] h-full opacity-80 drop-shadow-[0_0_15px_rgba(77,166,255,0.6)]" preserveAspectRatio="none">
-                         <path d="M0,80 Q50,90 100,50 T200,40 T300,70 T400,20 L400,100 L0,100 Z" fill="url(#grad)" stroke="none" />
-                         <path d="M0,80 Q50,90 100,50 T200,40 T300,70 T400,20" fill="none" stroke="#4da6ff" strokeWidth="2.5" />
+                    {/* SVG Curve perfectly mapped mapped to data bounds */}
+                    <div className="flex-1 w-full relative z-10 mt-2 pointer-events-none">
+                      <svg viewBox="0 0 500 150" className="absolute bottom-0 w-full h-[120%] opacity-100 drop-shadow-[0_8px_16px_rgba(59,130,246,0.5)]" preserveAspectRatio="none">
+                         <path d="M0,130 C40,110 80,120 120,80 C160,40 200,90 250,50 C300,10 350,60 400,30 C450,0 500,20 500,20 L500,150 L0,150 Z" fill="url(#blueGrad)" stroke="none" />
+                         <path d="M0,130 C40,110 80,120 120,80 C160,40 200,90 250,50 C300,10 350,60 400,30 C450,0 500,20 500,20" fill="none" stroke="#60A5FA" strokeWidth="3" />
                          <defs>
-                           <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
-                             <stop offset="0%" stopColor="#4da6ff" stopOpacity="0.5"/>
-                             <stop offset="100%" stopColor="#4da6ff" stopOpacity="0"/>
+                           <linearGradient id="blueGrad" x1="0" y1="0" x2="0" y2="1">
+                             <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.4"/>
+                             <stop offset="100%" stopColor="#3B82F6" stopOpacity="0"/>
                            </linearGradient>
                          </defs>
                       </svg>
+                    </div>
                   </div>
                 </div>
 
-                {/* Right Panel (Transactions) */}
-                <div className="w-40 shrink-0 bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col backdrop-blur-md">
-                  <div className="w-20 h-3 bg-white/20 rounded-full mb-4"></div>
-                  <div className="space-y-3 flex-1 overflow-hidden">
-                    {['bg-emerald-400', 'bg-emerald-400', 'bg-amber-400', 'bg-emerald-400', 'bg-rose-400'].map((color, i) => (
-                      <div key={i} className="flex justify-between items-center bg-white/5 p-2 rounded-lg border border-white/5 hover:bg-white/10 transition-colors cursor-default">
-                        <div className="space-y-1">
-                          <div className="w-12 h-2 bg-white/60 rounded-full"></div>
-                          <div className="w-8 h-1.5 bg-white/20 rounded-full"></div>
+                {/* Right Column (Transactions Table) */}
+                <div className="col-span-1 bg-[#111827] border border-slate-700/50 rounded-xl flex flex-col overflow-hidden shadow-lg relative z-10 hover:border-slate-600 transition-colors">
+                  <div className="px-5 py-4 border-b border-slate-700/50 bg-[#0E1526]/50 shrink-0">
+                    <h4 className="text-[13px] font-bold text-white uppercase tracking-wider">Recent Activity</h4>
+                  </div>
+                  <div className="flex-1 overflow-y-auto p-3 space-y-2">
+                    {[
+                      { n: 'Jane Cooper', d: 'Today, 2:40 PM', a: '+$145.00', s: 'text-emerald-400 bg-emerald-400/10' },
+                      { n: 'Refund processed', d: 'Today, 1:12 PM', a: '-$32.50', s: 'text-slate-400 bg-slate-800' },
+                      { n: 'Bessie Cooper', d: 'Yesterday, 8:00 AM', a: '+$98.20', s: 'text-emerald-400 bg-emerald-400/10' },
+                      { n: 'Esther Howard', d: 'Oct 23, 4:24 PM', a: '+$340.00', s: 'text-emerald-400 bg-emerald-400/10' },
+                      { n: 'Subscription fee', d: 'Oct 23, 1:00 PM', a: '-$49.00', s: 'text-slate-400 bg-slate-800' },
+                    ].map((tx, idx) => (
+                      <div key={idx} className="flex justify-between items-center p-3 rounded-lg hover:bg-slate-700/40 transition-colors cursor-pointer border border-transparent hover:border-slate-700 shadow-sm">
+                        <div>
+                          <p className="text-xs font-bold text-slate-200 mb-1">{tx.n}</p>
+                          <p className="text-[10px] text-slate-500 font-medium">{tx.d}</p>
                         </div>
-                        <div className={`w-2 h-2 rounded-full ${color} shadow-lg shadow-black`}></div>
+                        <span className={`text-[11px] font-black px-2 py-1 rounded shadow-inner ${tx.s}`}>{tx.a}</span>
                       </div>
                     ))}
                   </div>
@@ -132,53 +163,58 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Tablet / Phone Mockup (Overlap) */}
-            <div className="absolute -left-12 bottom-0 w-[240px] h-[400px] bg-[#02050e] border-[6px] border-slate-800/90 rounded-[32px] shadow-[0_40px_80px_-20px_rgba(0,0,0,1),0_0_40px_-5px_rgba(77,166,255,0.3)] p-1.5 transform rotate-y-[12deg] rotate-x-[5deg] translate-z-[120px] hover:translate-z-[160px] hover:rotate-y-[8deg] transition-all duration-700 backdrop-blur-md overflow-hidden z-20">
+            {/* Device Mockup (Secondary, smaller, overlapping in front, clear UI) */}
+            <div className="absolute left-0 bottom-6 w-[220px] h-[380px] bg-[#020617] border-[4px] border-slate-800 rounded-[30px] shadow-[0_50px_100px_-20px_rgba(0,0,0,1),20px_0_40px_-10px_rgba(0,0,0,0.6)] transform rotate-y-[10deg] rotate-x-[5deg] translate-z-[100px] hover:translate-z-[120px] hover:rotate-y-[5deg] transition-all duration-700 z-30 p-1.5 backdrop-blur-3xl">
                
-               {/* Glass Reflection effect */}
-               <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/10 to-transparent z-50"></div>
+               {/* Ambient Terminal Reflection */}
+               <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/5 to-transparent z-50 rounded-[26px]"></div>
                
-               <div className="w-full h-full bg-[#0b1220] rounded-[22px] overflow-hidden flex flex-col border border-white/5 relative z-10">
+               {/* Terminal Screen Realism */}
+               <div className="w-full h-full bg-white rounded-[22px] overflow-hidden flex flex-col border border-slate-300 relative shadow-inner z-10">
+                  
                   {/* Status Bar */}
-                  <div className="h-6 flex justify-between items-center px-4 pt-1">
-                     <div className="w-6 h-1.5 bg-white/30 rounded-full"></div>
-                     <div className="flex gap-1">
-                        <div className="w-1.5 h-1.5 bg-white/30 rounded-full"></div>
-                        <div className="w-2.5 h-1.5 bg-white/30 rounded-sm"></div>
+                  <div className="h-5 flex justify-between items-center px-4 bg-gray-50 border-b border-gray-100 shrink-0">
+                     <span className="text-[8px] font-black text-gray-800 tracking-wider">12:30</span>
+                     <div className="flex gap-1 items-center">
+                        <div className="w-1.5 h-1.5 rounded-full border border-gray-400 bg-gray-200"></div>
+                        <div className="w-2.5 h-1.5 bg-gray-800 rounded-[2px]"></div>
                      </div>
                   </div>
 
-                  {/* Tablet Hero Widget */}
-                  <div className="flex-1 p-3 flex flex-col gap-3">
-                     <div className="h-20 bg-gradient-to-br from-[#6a5cff] to-[#4da6ff] rounded-xl flex flex-col justify-center px-4 relative overflow-hidden shadow-lg shadow-[#4da6ff]/20">
-                        <div className="absolute right-0 bottom-0 w-24 h-24 bg-white/20 rounded-full blur-xl translate-x-1/2 translate-y-1/3"></div>
-                        <div className="w-16 h-2 bg-white/60 rounded-full mb-2"></div>
-                        <div className="w-24 h-5 bg-white rounded-md shadow-sm"></div>
-                     </div>
-
-                     {/* Vibrant POS Grid */}
-                     <div className="grid grid-cols-2 gap-2 flex-1">
-                        {[
-                          "bg-emerald-500", "bg-rose-500", "bg-blue-500", 
-                          "bg-amber-500", "bg-purple-500", "bg-cyan-500"
-                        ].map((c, i) => (
-                          <div key={i} className={`${c} rounded-xl shadow-inner relative overflow-hidden group border border-white/10`}>
-                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                             <div className="absolute bottom-2 left-2 w-10 h-1.5 bg-white/90 rounded-full shadow-sm"></div>
-                             <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-white/20"></div>
-                          </div>
-                        ))}
-                     </div>
+                  {/* High Quality Checkout View */}
+                  <div className="bg-gray-50 border-b border-gray-200 p-5 shrink-0 flex flex-col items-center shadow-sm relative overflow-hidden">
+                     <div className="absolute right-0 bottom-0 w-24 h-24 bg-blue-500/5 rounded-full blur-xl translate-x-1/2 translate-y-1/2"></div>
+                     <p className="text-[9px] text-slate-500 font-bold mb-1 uppercase tracking-widest relative z-10">Amount Due</p>
+                     <h2 className="text-[32px] font-black text-slate-900 tracking-tighter relative z-10">$24.50</h2>
+                     <p className="text-[9px] text-blue-600 font-semibold mt-1 bg-blue-50 px-2 py-0.5 rounded-full relative z-10">Tap, insert, or swipe</p>
                   </div>
 
-                  {/* Bottom Navigation */}
-                  <div className="h-14 bg-[#050a15] flex justify-around items-center px-2 border-t border-white/10 pb-1 shrink-0">
-                     {[1,2,3,4].map(i => (
-                        <div key={i} className={`w-5 h-5 rounded-md ${i===1?'bg-gradient-to-r from-[#4da6ff] to-[#6a5cff]':'bg-white/10'} shadow-sm`}></div>
-                     ))}
+                  {/* Real POS Receipt Grid */}
+                  <div className="flex-1 bg-white p-4 flex flex-col gap-3">
+                     <div className="flex justify-between items-center text-[11px] border-b border-slate-100 pb-2">
+                        <span className="text-slate-600 font-bold">Iced Latte x2</span>
+                        <span className="text-slate-900 font-black">$9.00</span>
+                     </div>
+                     <div className="flex justify-between items-center text-[11px] border-b border-slate-100 pb-2">
+                        <span className="text-slate-600 font-bold">Pastry Box</span>
+                        <span className="text-slate-900 font-black">$14.00</span>
+                     </div>
+                     <div className="flex justify-between items-center text-[11px] pb-2 text-emerald-600">
+                        <span className="font-bold">Tax (VAT 8%)</span>
+                        <span className="font-black">$1.50</span>
+                     </div>
+
+                     <div className="mt-auto grid grid-cols-2 gap-2">
+                       <div className="bg-slate-100/80 border border-slate-200 text-slate-700 text-[11px] font-black py-2.5 rounded-xl text-center hover:bg-slate-200 transition-colors shadow-sm cursor-pointer">Cash</div>
+                       <div className="bg-blue-600 border border-blue-500 text-white shadow-lg shadow-blue-600/30 text-[11px] font-black py-2.5 rounded-xl text-center hover:bg-blue-700 transition-all cursor-pointer">Card</div>
+                     </div>
                   </div>
+                  
+                  {/* Apple glass swipe bar at bottom */}
+                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-10 h-1 bg-slate-900 rounded-full opacity-20"></div>
                </div>
             </div>
+
           </div>
         </div>
       </section>
